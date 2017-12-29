@@ -34,10 +34,10 @@ export default function console(stateIn, {type, payload, meta}) {
         ),
       );
     case 'EVALUATE_CONSOLE_ENTRY':
-      return state.set(
-        meta.key,
-        new ConsoleEntry({expression: payload}),
-      );
+      return payload.trim(" ") == '' ? state : state.set(
+              meta.key,
+              new ConsoleEntry({expression: payload}),
+            );
     case 'CLEAR_CONSOLE_ENTRIES':
       return initialState;
     case 'CONSOLE_LOG_PRODUCED':
