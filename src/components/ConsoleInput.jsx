@@ -20,6 +20,9 @@ export default class ConsoleInput extends Component {
         inheritFontStylesFromParentElement(this._editor);
       });
     }
+    if (!this._editor.isFocused()) {
+      this._editor.focus();
+    }
   }
 
   _ref(containerElement) {
